@@ -1,5 +1,5 @@
 const brain = require('brain.js')
-const rawData = require('./data.json')
+const rawData = require('./stockData.json')
 
 // scalers
 function scaleDown(step) {
