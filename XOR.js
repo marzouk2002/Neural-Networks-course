@@ -10,6 +10,9 @@ const trainingData = [
     { input: [0, 0], output: [0] }
 ]
 
-net.train(trainingData)
+net.train(trainingData, {
+    log: (err) => console.log(err),
+    logPeriod: 100
+})
 
 console.log(net.run([0, 1]))
