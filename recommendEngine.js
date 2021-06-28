@@ -26,16 +26,16 @@ net.train(trainingData)
 
 // MY RECOMMENDATION ENGINE
 
-function strToScaledHex(str) {
+function strToHex(str) {
     return parseInt(str, 16)
 }
 
 const MytrainingData = [
-    { input: strToScaledHex('ff0000'), output: [1] },
-    { input: strToScaledHex('00ff00'), output: [0] },
-    { input: strToScaledHex('0000ff'), output: [0] },
-    { input: strToScaledHex('000000'), output: [1] },
-    { input: strToScaledHex('ffffff'), output: [0] },
+    { input: strToHex('ff0000'), output: [1] },
+    { input: strToHex('00ff00'), output: [0] },
+    { input: strToHex('0000ff'), output: [0] },
+    { input: strToHex('000000'), output: [1] },
+    { input: strToHex('ffffff'), output: [0] },
 ];
 
 const myNet = new brain.NeuralNetwork()
