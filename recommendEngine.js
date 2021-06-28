@@ -12,14 +12,33 @@ const net = new brain.NeuralNetwork()
 
 net.train(trainingData)
 
-console.log('before preference change');
-console.log(Array.from(net.run({ blue: 1})))
-console.log(Array.from(net.run({ brown: 1})))
+// console.log('before preference change');
+// console.log(Array.from(net.run({ blue: 1})))
+// console.log(Array.from(net.run({ brown: 1})))
 
-trainingData.pop()
-trainingData.push({ input: { brown: 1 }, output: [1] })
-net.train(trainingData)
+// trainingData.pop()
+// trainingData.push({ input: { brown: 1 }, output: [1] })
+// net.train(trainingData)
 
-console.log('after preference change');
-console.log(Array.from(net.run({ blue: 1})))
-console.log(Array.from(net.run({ brown: 1})))
+// console.log('after preference change');
+// console.log(Array.from(net.run({ blue: 1})))
+// console.log(Array.from(net.run({ brown: 1})))
+
+// MY RECOMMENDATION ENGINE
+
+function strToScaledHex(str) {
+    return parseInt(str, 16)
+}
+
+const MytrainingData = [
+    { input: strToScaledHex('ff0000'), output: [1] },
+    { input: strToScaledHex('00ff00'), output: [0] },
+    { input: strToScaledHex('0000ff'), output: [0] },
+    { input: strToScaledHex('000000'), output: [1] },
+    { input: strToScaledHex('ffffff'), output: [0] },
+];
+
+const myNet = new brain.NeuralNetwork()
+myNet.train(MytrainingData)
+
+console.log(myNet.run("000000"))
